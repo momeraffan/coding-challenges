@@ -40,4 +40,18 @@ class Solution:
                         else:
                             continue
                             
-###All test cases passed, but time limit exceeded
+###All test cases passed, but time limit exceeded using code above...
+###################################################################################################
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        temp_list = []
+        for x in range(len(nums)):
+            if target-nums[x] in nums and x!=nums.index(target-nums[x]):
+                return x, nums.index(target-nums[x])
+            else:
+                continue
+
+### Success 
+### Runtime: 1100 ms, faster than 32.00% of Python3 online submissions for Two Sum.
+### Memory Usage: 14.9 MB, less than 76.45% of Python3 online submissions for Two Sum.
