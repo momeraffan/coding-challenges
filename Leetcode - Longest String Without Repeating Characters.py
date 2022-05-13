@@ -26,20 +26,29 @@
 class Solution:
     from itertools import permutations
     def lengthOfLongestSubstring(self, s: str) -> int:
-        list2 = list(set(list(s)))
-        temp_substr = ''
+        list1 = list(s)
+        list2 = list(set(list1))
+        temp_list = []
+        final_val = 0
         if len(list2)==len(s):
             return len(s)
-        else:
-            for x in range(len(list2)):
-                temp_count = len(list2)-x
-                possible_substrings = permutations(list2,temp_count)
-                possible_substrings = list(possible_substrings)
-                for substr in possible_substrings:
-                    temp_substr = "".join(list(substr))
-                    if temp_substr in s:
-                        del list2, temp_substr, possible_substrings
-                        return temp_count
+        elif len(list2)==0:
             return 0
-          
-###############  Time Limit Exceeded on input "wslznzfxojzd"
+        else:
+            for xx in range(len(s)):
+                for yy in range(xx):
+                    if yy+xx>len(s):
+                        break
+                    else:
+                        temp_val = s[yy:yy+xx]
+                        #temp_list.append(len(temp_val))
+                        if len(temp_val)==len(list(set(list(s[yy:yy+xx])))):
+                            #print(len(temp_val))
+                            if len(temp_val)>final_val:
+                                final_val = len(temp_val)
+        return final_val
+                            #print(len(temp_val))
+                        #for a in list2:
+                            #temp_dict[a]=temp_val.count(a)
+                            #print(temp_val, temp_dict)
+                            #print(list(temp_dict.values()))
