@@ -37,64 +37,34 @@ class Solution:
         len1 = str(l1).count("next")
         len2 = str(l2).count("next")
         
-        if len1>=len2:
-            for x in range(len1):
-                str1 += str(eval("l1"+next_val_code+".val"))
-                next_val_code += dot_next
-            next_val_code=""
-            for x in range(len2):
-                str2 += str(eval("l2"+next_val_code+".val"))
-                next_val_code += dot_next
+        for x in range(len1):
+            str1 += str(eval("l1"+next_val_code+".val"))
+            next_val_code += dot_next
+        next_val_code=""
+        for x in range(len2):
+            str2 += str(eval("l2"+next_val_code+".val"))
+            next_val_code += dot_next
 
-            result = int(str1) + int(str2)
-            print(result)
-            result = str(result)
-            result = list(result)
-            result = [int(i) for i in result]
-            result.reverse()
-            ln = ListNode()
-            next_val_code=""
+        result = int(str1[::-1]) + int(str2[::-1])
+        print(result)
+        result = str(result)
+        result = list(result)
+        result = [int(i) for i in result]
+        result.reverse()
+        ln = ListNode()
+        next_val_code=""
 
-            for x in range(len(result)):
-                exec("ln" + next_val_code + ".val = " + str(result[x]))
-                if x==len(result)-1:
-                    break
-                else:
-                    exec("ln" + next_val_code + ".next = ListNode()")
-                next_val_code += dot_next
+        for x in range(len(result)):
+            exec("ln" + next_val_code + ".val = " + str(result[x]))
+            if x==len(result)-1:
+                break
+            else:
+                exec("ln" + next_val_code + ".next = ListNode()")
+            next_val_code += dot_next
 
-            del str1, str2, dot_next, next_val_code
-            return ln
-        else:
-            for x in range(len1):
-                str1 += str(eval("l1"+next_val_code+".val"))
-                str2 += str(eval("l2"+next_val_code+".val"))
-                temp_result = int(str1) + int(str2) + int(temp_val)
-                temp_val = 0
-                if len(str(temp_result))>1:
-                    temp_result = str(temp_result)
-                    result += temp_result[1]
-                    temp_val = int(temp_result[0])
-                else:
-                    result += str(temp_result)
-                next_val_code += dot_next
-            if temp_value > 0:
-                result += str(temp_val)
-
-            print(result)
-            result = list(result)
-            result = [int(i) for i in result]
-            result.reverse()
-            ln = ListNode()
-            next_val_code=""
-
-            for x in range(len(result)):
-                exec("ln" + next_val_code + ".val = " + str(result[x]))
-                if x==len(result)-1:
-                    break
-                else:
-                    exec("ln" + next_val_code + ".next = ListNode()")
-                next_val_code += dot_next
-
-            del str1, str2, dot_next, next_val_code
-            return ln
+        del str1, str2, dot_next, next_val_code
+        return ln
+       
+       
+### Runtime: 1162 ms, faster than 5.02% of Python3 online submissions for Add Two Numbers.
+### Memory Usage: 14.3 MB, less than 10.76% of Python3 online submissions for Add Two Numbers.
