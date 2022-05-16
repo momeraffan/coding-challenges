@@ -25,23 +25,17 @@
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        list2 = list(set(list(s)))
-        final_val = 0
-        if len(list2)==len(s):
+        temp_val = list(set(s))
+        if len(temp_val)==len(s):
             return len(s)
-        elif(len(s)>50000):
-            return final_val
-        elif len(list2)==1:
-            return 1
-        elif len(list2)==0:
-            return final_val
+        elif len(temp_val)==0:
+            return 0
         else:
             for xx in range(len(s)):
                 for yy in range(xx+1):
-                    temp_val = s[yy:yy+(len(s)-xx)]
-                    #print(temp_val, yy, yy+(len(s)-xx))
-                    if len(temp_val)==len(list(set(list(s[yy:yy+(len(s)-xx)])))): 
-                        if len(temp_val)>final_val:
+                    temp_num = yy+(len(s)-xx)
+                    temp_val = s[yy:temp_num]
+                    if len(temp_val)==len(set(s[yy:temp_num])):
                             return len(temp_val)
 
 # 986 / 987 test cases passed.
