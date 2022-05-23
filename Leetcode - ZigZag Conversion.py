@@ -37,3 +37,15 @@ class Solution:
                 temp_val2+=x
         temp_val2 = temp_val2.replace("0","")
         return temp_val2
+
+    
+# 813 / 1157 test cases passed.
+
+# Input:
+# "Apalindromeisaword,phrase,number,orothersequenceofunitsthatcanbereadthesamewayineitherdirection,withgeneralallowancesforadjustmentstopunctuationandworddividers."
+# 4
+
+# Output:
+# "Ads,eetqosaaaiecwnlcamouadenddirspnriadps,broheuefttcnedsmynhret,ieealnerdtetptanrdaioewrhanm,resecuihtbrteeaetdrintgrloasojsnsuctowvilmoruornnaehwiiohawfutnio."
+
+# Expected: "Ads,eetqosaaaiecwnlcamouadepnriadps,broheuefttcnedsmynhret,ieealnerdtetptannrddraioewrhanm,resecuihtbrteeaetdrintgrloasojsnsuctodoiislmoruornnaehwiiohawfutniwv."
